@@ -16,12 +16,16 @@ public interface PlannerAgent extends ChatMemoryAccess {
             Your role is to analyze the user request and decide which of the provided agent to call
             next to address it. You return an agent invocation containing the name of the agent and the arguments
             to pass to it. Generate the agent invocation also considering the past messages.
-            If the last response already contains an appropriate answer, simply return an agent invocation with agent name "done".
+            If the user request have been already completely fulfilled or the last response already contains an
+            appropriate answer, simply return an agent invocation with agent name "done" and a single argument named
+            "response" containing the answer to be returned to the user with a recap of all the performed actions.
             
-            For each agent it will be provided both the name and description in the format {name: description}.
+            For each agent it will be provided both the name and description together with the list of the arguments
+            it takes in input using the format {name: description, [arg1, arg2]}.
             """)
     @UserMessage("""
-            Decide which agent to invoke next, doing things in small steps and never taking any shortcuts or relying on your own knowledge.
+            Decide which agent to invoke next, doing things in small steps and
+            never taking any shortcuts or relying on your own knowledge.
             Ignore the fact the user's request is already clear or explicit.
             Don't try to answer the user request on any intermediary doubt on your own.
             You know nothing except the provided agents and their descriptions.

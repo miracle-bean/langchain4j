@@ -50,7 +50,7 @@ public class AgentsSystem {
         String memoryId = UUID.randomUUID().toString();
         String agentsList = agentsSpecs.values()
                 .stream()
-                .map(agentSpec -> "{" + agentSpec.name() + ": " + agentSpec.description() + "}")
+                .map(AgentSpecification::toCard)
                 .collect(Collectors.joining(", "));
 
         ChatMemory injectedChatMemory = MessageWindowChatMemory.withMaxMessages(10);
@@ -60,6 +60,10 @@ public class AgentsSystem {
             AgentInvocation agentInvocation = plannerAgent.plan(memoryId, agentsList, request, response);
             System.out.println("*** Agent Invocation: " + agentInvocation);
             if (agentInvocation.getAgentName().equalsIgnoreCase("done")) {
+                String doneResponse = agentInvocation.getArguments().get("response");
+                if (doneResponse != null) {
+                    response = doneResponse;
+                }
                 break;
             }
 
@@ -74,10 +78,9 @@ public class AgentsSystem {
                 throw new IllegalStateException("No specification found for agent: " + agentName);
             }
 
-            String[] args = agentInvocation.getArguments().values().toArray(new String[0]);
             ((ChatMemoryInjectable) agent).setChatMemory(injectedChatMemory);
             try {
-                response = agentSpec.method().invoke(agent, args).toString();
+                response = agentSpec.method().invoke(agent, agentSpec.toInvocationArguments(agentInvocation.getArguments())).toString();
                 ChatMemory plannerMemory = plannerAgent.getChatMemory(memoryId);
                 injectedChatMemory.messages().forEach(plannerMemory::add);
             } catch (IllegalAccessException  | InvocationTargetException e) {

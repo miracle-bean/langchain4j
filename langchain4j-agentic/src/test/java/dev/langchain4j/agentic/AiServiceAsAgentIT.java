@@ -1,5 +1,6 @@
 package dev.langchain4j.agentic;
 
+import dev.langchain4j.agent.tool.P;
 import dev.langchain4j.agent.tool.Tool;
 import dev.langchain4j.agentic.planner.AgentsSystem;
 import dev.langchain4j.memory.ChatMemory;
@@ -8,9 +9,12 @@ import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 import dev.langchain4j.service.AiServices;
 import dev.langchain4j.service.UserMessage;
+import dev.langchain4j.service.V;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static dev.langchain4j.model.ollama.AbstractOllamaLanguageModelInfrastructure.ollama;
@@ -208,5 +212,108 @@ public class AiServiceAsAgentIT {
 
         AgentsSystem agentsSystem = new AgentsSystem(plannerModel, expertsAggregatorAgent, medicalExpert, legalExpert, technicalExpert);
         System.out.println(agentsSystem.execute("I broke my leg what should I do"));
+    }
+
+    public interface BankerAgent {
+
+        @UserMessage("""
+            You are a banker that executes user request crediting or withdrawing money from an account,
+            using the tools provided and returning the final balance.
+            
+            The user request is: '{{it}}'.
+            """)
+        // This is not an agentic method, so the agent system cannot invoke it
+        String execute(@P("request") String request);
+
+        @UserMessage("""
+            You are a banker that can only withdraw money from a user account,
+            
+            Withdraw {{amount}} from {{user}}'s account and return the new balance.
+            """)
+        @Agent("A banker that withdraw money from an account")
+        String withdraw(@V("user") String user, @V("amount") Double amount);
+
+        @UserMessage("""
+            You are a banker that can only credit money to a user account,
+            
+            Credit {{amount}} to {{user}}'s account and return the new balance.
+            """)
+        @Agent("A banker that credit money to an account")
+        String credit(@V("user") String user, @V("amount") Double amount);
+    }
+
+    static class BankTool {
+
+        private final Map<String, Double> accounts = new HashMap<>();
+
+        void createAccount(String user, Double initialBalance) {
+            if (accounts.containsKey(user)) {
+                throw new RuntimeException("Account for user " + user + " already exists");
+            }
+            accounts.put(user, initialBalance);
+        }
+
+        double getBalance(String user) {
+            Double balance = accounts.get(user);
+            if (balance == null) {
+                throw new RuntimeException("No balance found for user " + user);
+            }
+            return balance;
+        }
+
+        @Tool("Credit the given user with the given amount and return the new balance")
+        Double credit(@P("user name") String user, @P("amount") Double amount) {
+            Double balance = accounts.get(user);
+            if (balance == null) {
+                throw new RuntimeException("No balance found for user " + user);
+            }
+            Double newBalance = balance + amount;
+            accounts.put(user, newBalance);
+            return newBalance;
+        }
+
+        @Tool("Withdraw the given amount with the given user and return the new balance")
+        Double withdraw(@P("user name") String user, @P("amount") Double amount) {
+            Double balance = accounts.get(user);
+            if (balance == null) {
+                throw new RuntimeException("No balance found for user " + user);
+            }
+            Double newBalance = balance - amount;
+            accounts.put(user, newBalance);
+            return newBalance;
+        }
+    }
+
+    @Test
+    void banker_test() {
+        BankTool bankTool = new BankTool();
+        bankTool.createAccount("Mario", 1000.0);
+        bankTool.createAccount("Georgios", 1000.0);
+
+        BankerAgent bankerAgent = AiServices.builder(BankerAgent.class)
+                .chatModel(model)
+                .tools(bankTool)
+                .build();
+
+        System.out.println(bankerAgent.execute("Withdraw 100 from Mario's account"));
+        assertThat(bankTool.getBalance("Mario")).isEqualTo(900.0);
+    }
+
+    @Test
+    void agentic_banker_test() {
+        BankTool bankTool = new BankTool();
+        bankTool.createAccount("Mario", 1000.0);
+        bankTool.createAccount("Georgios", 1000.0);
+
+        BankerAgent bankerAgent = AgentServices.builder(BankerAgent.class)
+                .chatModel(model)
+                .tools(bankTool)
+                .build();
+
+        AgentsSystem agentsSystem = new AgentsSystem(plannerModel, bankerAgent);
+        System.out.println(agentsSystem.execute("Transfer 100 from Mario's account to Georgios' one"));
+
+        assertThat(bankTool.getBalance("Mario")).isEqualTo(900.0);
+        assertThat(bankTool.getBalance("Georgios")).isEqualTo(1100.0);
     }
 }

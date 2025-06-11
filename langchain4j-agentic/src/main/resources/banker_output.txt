@@ -1,0 +1,439 @@
+/home/mario/software/jdk-23.0.1/bin/java -ea -Dtinylog.level=debug -Didea.test.cyclic.buffer.size=1048576 -javaagent:/home/mario/software/idea-IU-242.20224.419/lib/idea_rt.jar=39663 -javaagent:/home/mario/software/idea-IU-242.20224.419/plugins/java/lib/rt/debugger-agent.jar=file:/tmp/capture.props -Dkotlinx.coroutines.debug.enable.creation.stack.trace=false -Ddebugger.agent.enable.coroutines=true -Dkotlinx.coroutines.debug.enable.flows.stack.trace=true -Dkotlinx.coroutines.debug.enable.mutable.state.flows.stack.trace=true -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /home/mario/.m2/repository/org/junit/platform/junit-platform-launcher/1.11.3/junit-platform-launcher-1.11.3.jar:/home/mario/.m2/repository/org/junit/platform/junit-platform-engine/1.11.3/junit-platform-engine-1.11.3.jar:/home/mario/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.11.3/junit-jupiter-engine-5.11.3.jar:/home/mario/.m2/repository/org/junit/vintage/junit-vintage-engine/5.11.3/junit-vintage-engine-5.11.3.jar:/home/mario/software/idea-IU-242.20224.419/lib/idea_rt.jar:/home/mario/software/idea-IU-242.20224.419/plugins/junit/lib/junit5-rt.jar:/home/mario/software/idea-IU-242.20224.419/plugins/junit/lib/junit-rt.jar:/home/mario/workspace/langchain4j/langchain4j-agentic/target/test-classes:/home/mario/workspace/langchain4j/langchain4j-agentic/target/classes:/home/mario/workspace/langchain4j/langchain4j/target/classes:/home/mario/workspace/langchain4j/langchain4j-core/target/classes:/home/mario/.m2/repository/org/jspecify/jspecify/1.0.0/jspecify-1.0.0.jar:/home/mario/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.19.0/jackson-annotations-2.19.0.jar:/home/mario/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.19.0/jackson-core-2.19.0.jar:/home/mario/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.19.0/jackson-databind-2.19.0.jar:/home/mario/.m2/repository/org/apache/opennlp/opennlp-tools/2.5.4/opennlp-tools-2.5.4.jar:/home/mario/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/home/mario/workspace/langchain4j/langchain4j-ollama/target/classes:/home/mario/workspace/langchain4j/langchain4j-http-client/target/classes:/home/mario/workspace/langchain4j/http-clients/langchain4j-http-client-jdk/target/classes:/home/mario/workspace/langchain4j/langchain4j-ollama/target/test-classes:/home/mario/.m2/repository/org/testcontainers/ollama/1.20.4/ollama-1.20.4.jar:/home/mario/.m2/repository/org/testcontainers/testcontainers/1.20.4/testcontainers-1.20.4.jar:/home/mario/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/home/mario/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/mario/.m2/repository/org/apache/commons/commons-compress/1.24.0/commons-compress-1.24.0.jar:/home/mario/.m2/repository/org/rnorth/duct-tape/duct-tape/1.0.8/duct-tape-1.0.8.jar:/home/mario/.m2/repository/com/github/docker-java/docker-java-api/3.4.0/docker-java-api-3.4.0.jar:/home/mario/.m2/repository/com/github/docker-java/docker-java-transport-zerodep/3.4.0/docker-java-transport-zerodep-3.4.0.jar:/home/mario/.m2/repository/com/github/docker-java/docker-java-transport/3.4.0/docker-java-transport-3.4.0.jar:/home/mario/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/home/mario/.m2/repository/org/assertj/assertj-core/3.27.3/assertj-core-3.27.3.jar:/home/mario/.m2/repository/net/bytebuddy/byte-buddy/1.15.11/byte-buddy-1.15.11.jar:/home/mario/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/home/mario/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/home/mario/.m2/repository/org/mockito/mockito-core/5.14.2/mockito-core-5.14.2.jar:/home/mario/.m2/repository/net/bytebuddy/byte-buddy-agent/1.15.4/byte-buddy-agent-1.15.4.jar:/home/mario/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/home/mario/.m2/repository/org/mockito/mockito-junit-jupiter/5.14.2/mockito-junit-jupiter-5.14.2.jar:/home/mario/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.3/junit-jupiter-api-5.11.3.jar:/home/mario/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/mario/.m2/repository/org/junit/platform/junit-platform-commons/1.11.3/junit-platform-commons-1.11.3.jar:/home/mario/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/mario/.m2/repository/org/wiremock/wiremock-standalone/3.12.1/wiremock-standalone-3.12.1.jar:/home/mario/.m2/repository/org/tinylog/tinylog-impl/2.6.2/tinylog-impl-2.6.2.jar:/home/mario/.m2/repository/org/tinylog/tinylog-api/2.6.2/tinylog-api-2.6.2.jar:/home/mario/.m2/repository/org/tinylog/slf4j-tinylog/2.6.2/slf4j-tinylog-2.6.2.jar:/home/mario/.m2/repository/com/willowtreeapps/assertk/assertk/0.28.1/assertk-0.28.1.jar:/home/mario/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.25/kotlin-stdlib-1.9.25.jar:/home/mario/.m2/repository/com/willowtreeapps/opentest4k/opentest4k/1.3.0/opentest4k-1.3.0.jar:/home/mario/.m2/repository/com/willowtreeapps/assertk/assertk-coroutines-jvm/0.28.1/assertk-coroutines-jvm-0.28.1.jar:/home/mario/.m2/repository/com/willowtreeapps/assertk/assertk-jvm/0.28.1/assertk-jvm-0.28.1.jar:/home/mario/.m2/repository/com/willowtreeapps/opentest4k/opentest4k-jvm/1.3.0/opentest4k-jvm-1.3.0.jar:/home/mario/.m2/repository/org/jetbrains/kotlinx/kotlinx-coroutines-core-jvm/1.8.1/kotlinx-coroutines-core-jvm-1.8.1.jar:/home/mario/.m2/repository/org/awaitility/awaitility-kotlin/4.2.2/awaitility-kotlin-4.2.2.jar:/home/mario/.m2/repository/org/jetbrains/kotlinx/kotlinx-coroutines-test-jvm/1.8.1/kotlinx-coroutines-test-jvm-1.8.1.jar:/home/mario/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:/home/mario/.m2/repository/io/kotest/kotest-assertions-core-jvm/5.9.1/kotest-assertions-core-jvm-5.9.1.jar:/home/mario/.m2/repository/io/kotest/kotest-assertions-shared-jvm/5.9.1/kotest-assertions-shared-jvm-5.9.1.jar:/home/mario/.m2/repository/io/github/java-diff-utils/java-diff-utils/4.12/java-diff-utils-4.12.jar:/home/mario/.m2/repository/org/jetbrains/kotlinx/kotlinx-coroutines-jdk8/1.8.0/kotlinx-coroutines-jdk8-1.8.0.jar:/home/mario/.m2/repository/org/jetbrains/kotlin/kotlin-reflect/1.9.25/kotlin-reflect-1.9.25.jar:/home/mario/.m2/repository/io/kotest/kotest-common-jvm/5.9.1/kotest-common-jvm-5.9.1.jar:/home/mario/.m2/repository/io/kotest/kotest-assertions-api-jvm/5.9.1/kotest-assertions-api-jvm-5.9.1.jar com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 dev.langchain4j.agentic.AiServiceAsAgentIT,agentic_banker_test
+2025-06-11 18:26:33 [main] dev.langchain4j.http.client.log.HttpRequestLogger.log()
+INFO: HTTP request:
+- method: POST
+- url: http://localhost:11434/api/chat
+- headers: [Content-Type: application/json]
+- body: {
+  "model" : "qwen3:8b",
+  "messages" : [ {
+    "role" : "system",
+    "content" : "You are a planner expert that is provided with a set of agents.\nYou know nothing about any domain, don't take any assumptions about the user request,\nthe only thing that you can do is relying on the provided agents.\n\nYour role is to analyze the user request and decide which of the provided agent to call\nnext to address it. You return an agent invocation containing the name of the agent and the arguments\nto pass to it. Generate the agent invocation also considering the past messages.\nIf the user request have been already completely fulfilled or the last response already contains an\nappropriate answer, simply return an agent invocation with agent name \"done\" and a single argument named\n\"response\" containing the answer to be returned to the user with a recap of all the performed actions.\n\nFor each agent it will be provided both the name and description together with the list of the arguments\nit takes in input using the format {name: description, [arg1, arg2]}.\n"
+  }, {
+    "role" : "user",
+    "content" : "Decide which agent to invoke next, doing things in small steps and\nnever taking any shortcuts or relying on your own knowledge.\nIgnore the fact the user's request is already clear or explicit.\nDon't try to answer the user request on any intermediary doubt on your own.\nYou know nothing except the provided agents and their descriptions.\nYou MUST query all necessary agents.\n\nThe comma separated list of available agents is: '{credit: A banker that credit money to an account, [user, amount]}, {withdraw: A banker that withdraw money from an account, [user, amount]}'.\nThe user request is: 'Transfer 100 from Mario's account to Georgios' one'.\nThe last received response is: ''.\n\nYou must answer strictly in the following JSON format: {\n\"agentName\": (type: string),\n\"arguments\": (type: java.util.Map)\n}"
+  } ],
+  "options" : {
+    "temperature" : 0.0,
+    "stop" : [ ]
+  },
+  "stream" : false,
+  "tools" : [ ]
+}
+
+2025-06-11 18:29:33 [main] dev.langchain4j.http.client.log.HttpResponseLogger.log()
+INFO: HTTP response:
+- status code: 200
+- headers: [content-type: application/json; charset=utf-8], [date: Wed, 11 Jun 2025 16:29:33 GMT], [transfer-encoding: chunked]
+- body: {"model":"qwen3:8b","created_at":"2025-06-11T16:29:33.754425101Z","message":{"role":"assistant","content":"\u003cthink\u003e\nOkay, let's see. The user wants to transfer 100 from Mario's account to Georgios. The available agents are credit and withdraw. Wait, the credit agent is for adding money to an account, and withdraw is for taking money out. But transferring money between accounts isn't directly listed. Hmm, maybe the user wants to withdraw from Mario's account and then credit Georgios's. But the problem says to never take shortcuts and query all necessary agents. So maybe the correct approach is to first withdraw 100 from Mario's account using the withdraw agent, and then use the credit agent to add 100 to Georgios's account. But the user's request is a single transfer. Since the agents provided don't have a transfer function, perhaps the user expects two steps. But the user's request is to transfer, which isn't directly supported. Wait, the user's request is to transfer 100 from Mario to Georgios. The available agents are credit and withdraw. So maybe the correct way is to use the withdraw agent on Mario's account and then credit Georgios's. But the user's request is a single action. However, the agents don't have a transfer function. So the answer might be that the transfer can't be done directly, but the user might need to use two agents. But the user's request is to transfer, so maybe the correct approach is to first withdraw from Mario's account and then credit Georgios's. But the user's request is a single transfer. However, the available agents don't have a transfer function. So the correct answer is to use the withdraw agent for Mario's account and then the credit agent for Georgios's. But the user's request is to transfer, which isn't directly possible. Wait, the user's request is to transfer 100 from Mario to Georgios. The available agents are credit and withdraw. So the correct steps would be to first withdraw 100 from Mario's account (using the withdraw agent) and then credit Georgios's account (using the credit agent). But the user's request is a single transfer. However, since the agents don't have a transfer function, the answer would be to use both agents. But the user's request is to transfer, so maybe the correct answer is to use the withdraw agent on Mario's account and then the credit agent on Georgios's. But the user's request is a single action. However, the available agents don't have a transfer function. Therefore, the correct approach is to first withdraw from Mario's account and then credit Georgios's. But the user's request is to transfer, which isn't directly supported. So the answer would be to use the withdraw agent for Mario's account and then the credit agent for Georgios's. But the user's request is to transfer, so the correct answer is to use the withdraw agent on Mario's account and then the credit agent on Georgios's. Therefore, the first step is to withdraw 100 from Mario's account using the withdraw agent. Then, the next step would be to credit Georgios's account with 100 using the credit agent. But the user's request is a single transfer. However, the available agents don't have a transfer function. So the correct answer is to use the withdraw agent first and then the credit agent. But the user's request is to transfer, which isn't directly possible. Therefore, the answer is to use the withdraw agent for Mario's account and then the credit agent for Georgios's. But the user's request is to transfer, so the correct answer is to use the withdraw agent on Mario's account and then the credit agent on Georgios's. So the first agent to invoke is the withdraw agent with user Mario and amount 100. Then, the next step would be the credit agent with user Georgios and amount 100. But the user's request is to transfer, so the answer is to use both agents. However, the user's request is to transfer, which isn't directly supported. Therefore, the correct answer is to use the withdraw agent first and then the credit agent. But the user's request is to transfer, so the answer is to use the withdraw agent on Mario's account and then the credit agent on Georgios's. Therefore, the first agent to invoke is the withdraw agent with user Mario and amount 100.\n\u003c/think\u003e\n\n{\n  \"agentName\": \"withdraw\",\n  \"arguments\": {\n    \"user\": \"Mario\",\n    \"amount\": \"100\"\n  }\n}"},"done_reason":"stop","done":true,"total_duration":180557340038,"load_duration":42782128,"prompt_eval_count":387,"prompt_eval_duration":19842312433,"eval_count":943,"eval_duration":160664037887}
+
+*** Agent Invocation: AgentInvocation{agentName='withdraw', arguments={user=Mario, amount=100}}
+2025-06-11 18:29:33 [main] dev.langchain4j.http.client.log.HttpRequestLogger.log()
+INFO: HTTP request:
+- method: POST
+- url: http://localhost:11434/api/chat
+- headers: [Content-Type: application/json]
+- body: {
+  "model" : "qwen2.5:7b",
+  "messages" : [ {
+    "role" : "user",
+    "content" : "You are a banker that can only withdraw money from a user account,\n\nWithdraw 100.0 from Mario's account and return the new balance.\n"
+  } ],
+  "options" : {
+    "temperature" : 0.0,
+    "stop" : [ ]
+  },
+  "stream" : false,
+  "tools" : [ {
+    "type" : "function",
+    "function" : {
+      "name" : "credit",
+      "description" : "Credit the given user with the given amount and return the new balance",
+      "parameters" : {
+        "type" : "object",
+        "properties" : {
+          "arg0" : {
+            "type" : "string",
+            "description" : "user name"
+          },
+          "arg1" : {
+            "type" : "number",
+            "description" : "amount"
+          }
+        },
+        "required" : [ "arg0", "arg1" ]
+      }
+    }
+  }, {
+    "type" : "function",
+    "function" : {
+      "name" : "withdraw",
+      "description" : "Withdraw the given amount with the given user and return the new balance",
+      "parameters" : {
+        "type" : "object",
+        "properties" : {
+          "arg0" : {
+            "type" : "string",
+            "description" : "user name"
+          },
+          "arg1" : {
+            "type" : "number",
+            "description" : "amount"
+          }
+        },
+        "required" : [ "arg0", "arg1" ]
+      }
+    }
+  } ]
+}
+
+2025-06-11 18:29:52 [main] dev.langchain4j.http.client.log.HttpResponseLogger.log()
+INFO: HTTP response:
+- status code: 200
+- headers: [content-length: 391], [content-type: application/json; charset=utf-8], [date: Wed, 11 Jun 2025 16:29:52 GMT]
+- body: {"model":"qwen2.5:7b","created_at":"2025-06-11T16:29:52.820640768Z","message":{"role":"assistant","content":"","tool_calls":[{"function":{"name":"withdraw","arguments":{"arg0":"Mario","arg1":100}}}]},"done_reason":"stop","done":true,"total_duration":19019352875,"load_duration":2207526251,"prompt_eval_count":279,"prompt_eval_duration":14091898596,"eval_count":31,"eval_duration":2716185327}
+
+2025-06-11 18:29:52 [main] dev.langchain4j.http.client.log.HttpRequestLogger.log()
+INFO: HTTP request:
+- method: POST
+- url: http://localhost:11434/api/chat
+- headers: [Content-Type: application/json]
+- body: {
+  "model" : "qwen2.5:7b",
+  "messages" : [ {
+    "role" : "user",
+    "content" : "You are a banker that can only withdraw money from a user account,\n\nWithdraw 100.0 from Mario's account and return the new balance.\n"
+  }, {
+    "role" : "assistant",
+    "tool_calls" : [ {
+      "function" : {
+        "name" : "withdraw",
+        "arguments" : {
+          "arg1" : 100,
+          "arg0" : "Mario"
+        }
+      }
+    } ]
+  }, {
+    "role" : "tool",
+    "content" : "900.0"
+  } ],
+  "options" : {
+    "temperature" : 0.0,
+    "stop" : [ ]
+  },
+  "stream" : false,
+  "tools" : [ {
+    "type" : "function",
+    "function" : {
+      "name" : "credit",
+      "description" : "Credit the given user with the given amount and return the new balance",
+      "parameters" : {
+        "type" : "object",
+        "properties" : {
+          "arg0" : {
+            "type" : "string",
+            "description" : "user name"
+          },
+          "arg1" : {
+            "type" : "number",
+            "description" : "amount"
+          }
+        },
+        "required" : [ "arg0", "arg1" ]
+      }
+    }
+  }, {
+    "type" : "function",
+    "function" : {
+      "name" : "withdraw",
+      "description" : "Withdraw the given amount with the given user and return the new balance",
+      "parameters" : {
+        "type" : "object",
+        "properties" : {
+          "arg0" : {
+            "type" : "string",
+            "description" : "user name"
+          },
+          "arg1" : {
+            "type" : "number",
+            "description" : "amount"
+          }
+        },
+        "required" : [ "arg0", "arg1" ]
+      }
+    }
+  } ]
+}
+
+2025-06-11 18:29:56 [main] dev.langchain4j.http.client.log.HttpResponseLogger.log()
+INFO: HTTP response:
+- status code: 200
+- headers: [content-length: 366], [content-type: application/json; charset=utf-8], [date: Wed, 11 Jun 2025 16:29:56 GMT]
+- body: {"model":"qwen2.5:7b","created_at":"2025-06-11T16:29:56.67617027Z","message":{"role":"assistant","content":"The new balance in Mario's account after withdrawing 100.0 is 900.0."},"done_reason":"stop","done":true,"total_duration":3845771212,"load_duration":15817006,"prompt_eval_count":328,"prompt_eval_duration":1755877002,"eval_count":24,"eval_duration":2060032384}
+
+2025-06-11 18:29:56 [main] dev.langchain4j.http.client.log.HttpRequestLogger.log()
+INFO: HTTP request:
+- method: POST
+- url: http://localhost:11434/api/chat
+- headers: [Content-Type: application/json]
+- body: {
+  "model" : "qwen3:8b",
+  "messages" : [ {
+    "role" : "system",
+    "content" : "You are a planner expert that is provided with a set of agents.\nYou know nothing about any domain, don't take any assumptions about the user request,\nthe only thing that you can do is relying on the provided agents.\n\nYour role is to analyze the user request and decide which of the provided agent to call\nnext to address it. You return an agent invocation containing the name of the agent and the arguments\nto pass to it. Generate the agent invocation also considering the past messages.\nIf the user request have been already completely fulfilled or the last response already contains an\nappropriate answer, simply return an agent invocation with agent name \"done\" and a single argument named\n\"response\" containing the answer to be returned to the user with a recap of all the performed actions.\n\nFor each agent it will be provided both the name and description together with the list of the arguments\nit takes in input using the format {name: description, [arg1, arg2]}.\n"
+  }, {
+    "role" : "user",
+    "content" : "Decide which agent to invoke next, doing things in small steps and\nnever taking any shortcuts or relying on your own knowledge.\nIgnore the fact the user's request is already clear or explicit.\nDon't try to answer the user request on any intermediary doubt on your own.\nYou know nothing except the provided agents and their descriptions.\nYou MUST query all necessary agents.\n\nThe comma separated list of available agents is: '{credit: A banker that credit money to an account, [user, amount]}, {withdraw: A banker that withdraw money from an account, [user, amount]}'.\nThe user request is: 'Transfer 100 from Mario's account to Georgios' one'.\nThe last received response is: ''.\n\nYou must answer strictly in the following JSON format: {\n\"agentName\": (type: string),\n\"arguments\": (type: java.util.Map)\n}"
+  }, {
+    "role" : "assistant",
+    "content" : "<think>\nOkay, let's see. The user wants to transfer 100 from Mario's account to Georgios. The available agents are credit and withdraw. Wait, the credit agent is for adding money to an account, and withdraw is for taking money out. But transferring money between accounts isn't directly listed. Hmm, maybe the user wants to withdraw from Mario's account and then credit Georgios's. But the problem says to never take shortcuts and query all necessary agents. So maybe the correct approach is to first withdraw 100 from Mario's account using the withdraw agent, and then use the credit agent to add 100 to Georgios's account. But the user's request is a single transfer. Since the agents provided don't have a transfer function, perhaps the user expects two steps. But the user's request is to transfer, which isn't directly supported. Wait, the user's request is to transfer 100 from Mario to Georgios. The available agents are credit and withdraw. So maybe the correct way is to use the withdraw agent on Mario's account and then credit Georgios's. But the user's request is a single action. However, the agents don't have a transfer function. So the answer might be that the transfer can't be done directly, but the user might need to use two agents. But the user's request is to transfer, so maybe the correct approach is to first withdraw from Mario's account and then credit Georgios's. But the user's request is a single transfer. However, the available agents don't have a transfer function. So the correct answer is to use the withdraw agent for Mario's account and then the credit agent for Georgios's. But the user's request is to transfer, which isn't directly possible. Wait, the user's request is to transfer 100 from Mario to Georgios. The available agents are credit and withdraw. So the correct steps would be to first withdraw 100 from Mario's account (using the withdraw agent) and then credit Georgios's account (using the credit agent). But the user's request is a single transfer. However, since the agents don't have a transfer function, the answer would be to use both agents. But the user's request is to transfer, so maybe the correct answer is to use the withdraw agent on Mario's account and then the credit agent on Georgios's. But the user's request is a single action. However, the available agents don't have a transfer function. Therefore, the correct approach is to first withdraw from Mario's account and then credit Georgios's. But the user's request is to transfer, which isn't directly supported. So the answer would be to use the withdraw agent for Mario's account and then the credit agent for Georgios's. But the user's request is to transfer, so the correct answer is to use the withdraw agent on Mario's account and then the credit agent on Georgios's. Therefore, the first step is to withdraw 100 from Mario's account using the withdraw agent. Then, the next step would be to credit Georgios's account with 100 using the credit agent. But the user's request is a single transfer. However, the available agents don't have a transfer function. So the correct answer is to use the withdraw agent first and then the credit agent. But the user's request is to transfer, which isn't directly possible. Therefore, the answer is to use the withdraw agent for Mario's account and then the credit agent for Georgios's. But the user's request is to transfer, so the correct answer is to use the withdraw agent on Mario's account and then the credit agent on Georgios's. So the first agent to invoke is the withdraw agent with user Mario and amount 100. Then, the next step would be the credit agent with user Georgios and amount 100. But the user's request is to transfer, so the answer is to use both agents. However, the user's request is to transfer, which isn't directly supported. Therefore, the correct answer is to use the withdraw agent first and then the credit agent. But the user's request is to transfer, so the answer is to use the withdraw agent on Mario's account and then the credit agent on Georgios's. Therefore, the first agent to invoke is the withdraw agent with user Mario and amount 100.\n</think>\n\n{\n  \"agentName\": \"withdraw\",\n  \"arguments\": {\n    \"user\": \"Mario\",\n    \"amount\": \"100\"\n  }\n}",
+    "tool_calls" : [ ]
+  }, {
+    "role" : "user",
+    "content" : "You are a banker that can only withdraw money from a user account,\n\nWithdraw 100.0 from Mario's account and return the new balance.\n"
+  }, {
+    "role" : "assistant",
+    "tool_calls" : [ {
+      "function" : {
+        "name" : "withdraw",
+        "arguments" : {
+          "arg1" : 100,
+          "arg0" : "Mario"
+        }
+      }
+    } ]
+  }, {
+    "role" : "tool",
+    "content" : "900.0"
+  }, {
+    "role" : "assistant",
+    "content" : "The new balance in Mario's account after withdrawing 100.0 is 900.0.",
+    "tool_calls" : [ ]
+  }, {
+    "role" : "user",
+    "content" : "Decide which agent to invoke next, doing things in small steps and\nnever taking any shortcuts or relying on your own knowledge.\nIgnore the fact the user's request is already clear or explicit.\nDon't try to answer the user request on any intermediary doubt on your own.\nYou know nothing except the provided agents and their descriptions.\nYou MUST query all necessary agents.\n\nThe comma separated list of available agents is: '{credit: A banker that credit money to an account, [user, amount]}, {withdraw: A banker that withdraw money from an account, [user, amount]}'.\nThe user request is: 'Transfer 100 from Mario's account to Georgios' one'.\nThe last received response is: 'The new balance in Mario's account after withdrawing 100.0 is 900.0.'.\n\nYou must answer strictly in the following JSON format: {\n\"agentName\": (type: string),\n\"arguments\": (type: java.util.Map)\n}"
+  } ],
+  "options" : {
+    "temperature" : 0.0,
+    "stop" : [ ]
+  },
+  "stream" : false,
+  "tools" : [ ]
+}
+
+2025-06-11 18:30:34 [main] dev.langchain4j.http.client.log.HttpResponseLogger.log()
+INFO: HTTP response:
+- status code: 200
+- headers: [content-length: 1014], [content-type: application/json; charset=utf-8], [date: Wed, 11 Jun 2025 16:30:34 GMT]
+- body: {"model":"qwen3:8b","created_at":"2025-06-11T16:30:34.970575401Z","message":{"role":"assistant","content":"\u003cthink\u003e\nOkay, let's see. The user wants to transfer 100 from Mario's account to Georgios. The previous step was withdrawing 100 from Mario's account, which successfully reduced his balance to 900. Now, the next step should be to credit that amount to Georgios's account. The available agents are 'credit' and 'withdraw'. Since we've already handled the withdrawal, the next logical step is to use the credit agent to add the 100 to Georgios's account. So, I need to invoke the credit agent with user as Georgios and amount as 100. That should complete the transfer.\n\u003c/think\u003e\n\n{\n  \"agentName\": \"credit\",\n  \"arguments\": {\n    \"user\": \"Georgios\",\n    \"amount\": \"100\"\n  }\n}"},"done_reason":"stop","done":true,"total_duration":38289873009,"load_duration":15476061,"prompt_eval_count":739,"prompt_eval_duration":19731300290,"eval_count":175,"eval_duration":18503418075}
+
+*** Agent Invocation: AgentInvocation{agentName='credit', arguments={user=Georgios, amount=100}}
+2025-06-11 18:30:34 [main] dev.langchain4j.http.client.log.HttpRequestLogger.log()
+INFO: HTTP request:
+- method: POST
+- url: http://localhost:11434/api/chat
+- headers: [Content-Type: application/json]
+- body: {
+  "model" : "qwen2.5:7b",
+  "messages" : [ {
+    "role" : "user",
+    "content" : "You are a banker that can only credit money to a user account,\n\nCredit 100.0 to Georgios's account and return the new balance.\n"
+  } ],
+  "options" : {
+    "temperature" : 0.0,
+    "stop" : [ ]
+  },
+  "stream" : false,
+  "tools" : [ {
+    "type" : "function",
+    "function" : {
+      "name" : "credit",
+      "description" : "Credit the given user with the given amount and return the new balance",
+      "parameters" : {
+        "type" : "object",
+        "properties" : {
+          "arg0" : {
+            "type" : "string",
+            "description" : "user name"
+          },
+          "arg1" : {
+            "type" : "number",
+            "description" : "amount"
+          }
+        },
+        "required" : [ "arg0", "arg1" ]
+      }
+    }
+  }, {
+    "type" : "function",
+    "function" : {
+      "name" : "withdraw",
+      "description" : "Withdraw the given amount with the given user and return the new balance",
+      "parameters" : {
+        "type" : "object",
+        "properties" : {
+          "arg0" : {
+            "type" : "string",
+            "description" : "user name"
+          },
+          "arg1" : {
+            "type" : "number",
+            "description" : "amount"
+          }
+        },
+        "required" : [ "arg0", "arg1" ]
+      }
+    }
+  } ]
+}
+
+2025-06-11 18:30:44 [main] dev.langchain4j.http.client.log.HttpResponseLogger.log()
+INFO: HTTP response:
+- status code: 200
+- headers: [content-length: 388], [content-type: application/json; charset=utf-8], [date: Wed, 11 Jun 2025 16:30:44 GMT]
+- body: {"model":"qwen2.5:7b","created_at":"2025-06-11T16:30:44.611552099Z","message":{"role":"assistant","content":"","tool_calls":[{"function":{"name":"credit","arguments":{"arg0":"Georgios","arg1":100}}}]},"done_reason":"stop","done":true,"total_duration":9636103165,"load_duration":14221578,"prompt_eval_count":280,"prompt_eval_duration":1609353835,"eval_count":33,"eval_duration":8008205320}
+
+2025-06-11 18:30:44 [main] dev.langchain4j.http.client.log.HttpRequestLogger.log()
+INFO: HTTP request:
+- method: POST
+- url: http://localhost:11434/api/chat
+- headers: [Content-Type: application/json]
+- body: {
+  "model" : "qwen2.5:7b",
+  "messages" : [ {
+    "role" : "user",
+    "content" : "You are a banker that can only credit money to a user account,\n\nCredit 100.0 to Georgios's account and return the new balance.\n"
+  }, {
+    "role" : "assistant",
+    "tool_calls" : [ {
+      "function" : {
+        "name" : "credit",
+        "arguments" : {
+          "arg1" : 100,
+          "arg0" : "Georgios"
+        }
+      }
+    } ]
+  }, {
+    "role" : "tool",
+    "content" : "1100.0"
+  } ],
+  "options" : {
+    "temperature" : 0.0,
+    "stop" : [ ]
+  },
+  "stream" : false,
+  "tools" : [ {
+    "type" : "function",
+    "function" : {
+      "name" : "credit",
+      "description" : "Credit the given user with the given amount and return the new balance",
+      "parameters" : {
+        "type" : "object",
+        "properties" : {
+          "arg0" : {
+            "type" : "string",
+            "description" : "user name"
+          },
+          "arg1" : {
+            "type" : "number",
+            "description" : "amount"
+          }
+        },
+        "required" : [ "arg0", "arg1" ]
+      }
+    }
+  }, {
+    "type" : "function",
+    "function" : {
+      "name" : "withdraw",
+      "description" : "Withdraw the given amount with the given user and return the new balance",
+      "parameters" : {
+        "type" : "object",
+        "properties" : {
+          "arg0" : {
+            "type" : "string",
+            "description" : "user name"
+          },
+          "arg1" : {
+            "type" : "number",
+            "description" : "amount"
+          }
+        },
+        "required" : [ "arg0", "arg1" ]
+      }
+    }
+  } ]
+}
+
+2025-06-11 18:30:55 [main] dev.langchain4j.http.client.log.HttpResponseLogger.log()
+INFO: HTTP response:
+- status code: 200
+- headers: [content-length: 375], [content-type: application/json; charset=utf-8], [date: Wed, 11 Jun 2025 16:30:55 GMT]
+- body: {"model":"qwen2.5:7b","created_at":"2025-06-11T16:30:55.183594743Z","message":{"role":"assistant","content":"I have credited 100.0 to Georgios's account, and the new balance is 1100.0."},"done_reason":"stop","done":true,"total_duration":10565239768,"load_duration":22613156,"prompt_eval_count":332,"prompt_eval_duration":2744049369,"eval_count":29,"eval_duration":7771203620}
+
+2025-06-11 18:30:55 [main] dev.langchain4j.http.client.log.HttpRequestLogger.log()
+INFO: HTTP request:
+- method: POST
+- url: http://localhost:11434/api/chat
+- headers: [Content-Type: application/json]
+- body: {
+  "model" : "qwen3:8b",
+  "messages" : [ {
+    "role" : "system",
+    "content" : "You are a planner expert that is provided with a set of agents.\nYou know nothing about any domain, don't take any assumptions about the user request,\nthe only thing that you can do is relying on the provided agents.\n\nYour role is to analyze the user request and decide which of the provided agent to call\nnext to address it. You return an agent invocation containing the name of the agent and the arguments\nto pass to it. Generate the agent invocation also considering the past messages.\nIf the user request have been already completely fulfilled or the last response already contains an\nappropriate answer, simply return an agent invocation with agent name \"done\" and a single argument named\n\"response\" containing the answer to be returned to the user with a recap of all the performed actions.\n\nFor each agent it will be provided both the name and description together with the list of the arguments\nit takes in input using the format {name: description, [arg1, arg2]}.\n"
+  }, {
+    "role" : "assistant",
+    "content" : "The new balance in Mario's account after withdrawing 100.0 is 900.0.",
+    "tool_calls" : [ ]
+  }, {
+    "role" : "user",
+    "content" : "Decide which agent to invoke next, doing things in small steps and\nnever taking any shortcuts or relying on your own knowledge.\nIgnore the fact the user's request is already clear or explicit.\nDon't try to answer the user request on any intermediary doubt on your own.\nYou know nothing except the provided agents and their descriptions.\nYou MUST query all necessary agents.\n\nThe comma separated list of available agents is: '{credit: A banker that credit money to an account, [user, amount]}, {withdraw: A banker that withdraw money from an account, [user, amount]}'.\nThe user request is: 'Transfer 100 from Mario's account to Georgios' one'.\nThe last received response is: 'The new balance in Mario's account after withdrawing 100.0 is 900.0.'.\n\nYou must answer strictly in the following JSON format: {\n\"agentName\": (type: string),\n\"arguments\": (type: java.util.Map)\n}"
+  }, {
+    "role" : "assistant",
+    "content" : "<think>\nOkay, let's see. The user wants to transfer 100 from Mario's account to Georgios. The previous step was withdrawing 100 from Mario's account, which successfully reduced his balance to 900. Now, the next step should be to credit that amount to Georgios's account. The available agents are 'credit' and 'withdraw'. Since we've already handled the withdrawal, the next logical step is to use the credit agent to add the 100 to Georgios's account. So, I need to invoke the credit agent with user as Georgios and amount as 100. That should complete the transfer.\n</think>\n\n{\n  \"agentName\": \"credit\",\n  \"arguments\": {\n    \"user\": \"Georgios\",\n    \"amount\": \"100\"\n  }\n}",
+    "tool_calls" : [ ]
+  }, {
+    "role" : "user",
+    "content" : "You are a banker that can only credit money to a user account,\n\nCredit 100.0 to Georgios's account and return the new balance.\n"
+  }, {
+    "role" : "assistant",
+    "tool_calls" : [ {
+      "function" : {
+        "name" : "credit",
+        "arguments" : {
+          "arg1" : 100,
+          "arg0" : "Georgios"
+        }
+      }
+    } ]
+  }, {
+    "role" : "tool",
+    "content" : "1100.0"
+  }, {
+    "role" : "assistant",
+    "content" : "I have credited 100.0 to Georgios's account, and the new balance is 1100.0.",
+    "tool_calls" : [ ]
+  }, {
+    "role" : "user",
+    "content" : "Decide which agent to invoke next, doing things in small steps and\nnever taking any shortcuts or relying on your own knowledge.\nIgnore the fact the user's request is already clear or explicit.\nDon't try to answer the user request on any intermediary doubt on your own.\nYou know nothing except the provided agents and their descriptions.\nYou MUST query all necessary agents.\n\nThe comma separated list of available agents is: '{credit: A banker that credit money to an account, [user, amount]}, {withdraw: A banker that withdraw money from an account, [user, amount]}'.\nThe user request is: 'Transfer 100 from Mario's account to Georgios' one'.\nThe last received response is: 'I have credited 100.0 to Georgios's account, and the new balance is 1100.0.'.\n\nYou must answer strictly in the following JSON format: {\n\"agentName\": (type: string),\n\"arguments\": (type: java.util.Map)\n}"
+  } ],
+  "options" : {
+    "temperature" : 0.0,
+    "stop" : [ ]
+  },
+  "stream" : false,
+  "tools" : [ ]
+}
+
+2025-06-11 18:33:27 [main] dev.langchain4j.http.client.log.HttpResponseLogger.log()
+INFO: HTTP response:
+- status code: 200
+- headers: [content-type: application/json; charset=utf-8], [date: Wed, 11 Jun 2025 16:33:27 GMT], [transfer-encoding: chunked]
+- body: {"model":"qwen3:8b","created_at":"2025-06-11T16:33:27.105081041Z","message":{"role":"assistant","content":"\u003cthink\u003e\nOkay, let's see. The user wants to transfer 100 from Mario's account to Georgios'. The last response mentioned that Georgios's balance is now 1100.0 after crediting 100. But wait, the initial step was withdrawing 100 from Mario, which left him with 900. Then the credit to Georgios added 100, making his balance 1100. But the user's original request was a transfer, which typically involves moving money from one account to another. However, the available agents are 'credit' and 'withdraw'. \n\nWait, in the previous steps, the assistant first called the withdraw agent on Mario's account, which reduced his balance by 100. Then, the credit agent was used to add 100 to Georgios's account. So the transfer is effectively done through these two steps. But the user's request was to transfer, which might imply using a single agent for the transfer. However, since the available agents don't include a transfer function, the correct approach is to use the two existing agents.\n\nBut the user's request has already been fulfilled by withdrawing from Mario and crediting to Georgios. The last response confirmed the credit to Georgios. Now, the assistant needs to check if there's anything else required. Since the user's request was a transfer, and the two steps have been executed, the process is complete. Therefore, the next step is to inform the user that the transfer is complete. However, the system requires that if the request is fulfilled, the agent 'done' should be called with the response. So the correct invocation here is the 'done' agent with the final response summarizing the actions taken.\n\u003c/think\u003e\n\n{\n  \"agentName\": \"done\",\n  \"arguments\": {\n    \"response\": \"Transfer completed: 100.0 withdrawn from Mario's account (balance: 900.0) and credited to Georgios's account (balance: 1100.0).\"\n  }\n}"},"done_reason":"stop","done":true,"total_duration":151914438865,"load_duration":19559410,"prompt_eval_count":806,"prompt_eval_duration":49081780721,"eval_count":429,"eval_duration":102733800702}
+
+*** Agent Invocation: AgentInvocation{agentName='done', arguments={response=Transfer completed: 100.0 withdrawn from Mario's account (balance: 900.0) and credited to Georgios's account (balance: 1100.0).}}
+Transfer completed: 100.0 withdrawn from Mario's account (balance: 900.0) and credited to Georgios's account (balance: 1100.0).
+
+Process finished with exit code 0
