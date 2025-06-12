@@ -37,7 +37,6 @@
             <artifactId>google-cloud-storage</artifactId>
         </dependency>
 
-
         <!-- test dependencies -->
 
         <dependency>
